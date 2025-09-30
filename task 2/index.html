@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f8f9fa;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            width: 260px;
+            background: #fff;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .card img {
+            max-width: 100%;
+            height: 200px;
+            object-fit: contain;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 15px;
+            background: #007bff;
+            color: #fff;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .card:hover{
+            transform: translate(0px,-10px);
+            transition: 0.4s ease-in-out;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Our Products</h2>
+    <div class="container" id="productContainer"></div>
+
+    <script>
+        // Array of product data
+        const products = [
+            {
+                category: "men's clothing",
+                title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+                price: 109.95,
+                image: "images/product 1.png",
+            },
+            {
+                category: "men's clothing",
+                title: "Mens Casual Premium Slim Fit T-Shirts",
+                price: 22.3,
+                image: "images/product 2.png",
+            },
+            {
+                category: "men's clothing",
+                title: "Mens Cotton Jacket",
+                price: 55.99,
+                image: "images/product 3.png",
+            },
+            {
+                category: "men's clothing",
+                title: "Mens Casual Slim Fit ",
+                price: 15.99,
+                 image: "images/product 4.png"
+            },
+            {
+                category: "Jewelery",
+                title: "John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain Bracelet ",
+                price: 695,
+                image: "images/product 5.png"
+            },
+            {
+                category: "Jewelery",
+                title: "Solid Gold Petite Micropave  ",
+                price: 168,
+                 image: "images/product 6.png"
+            },
+            {
+                category: "Jewelery",
+                title: "White Gold Plated Princess",
+                price: 9.99,
+                 image: "images/product 7.png"
+            },
+            {
+                category: "Jewelery",
+                title: "Pierced Owl Rose Gold Plated Stainless Steel Double",
+                price: 10.99,
+                 image: "images/product 8.png"
+            },
+            {
+                category: "Electronics",
+                title: "WD 2TB Elements Portable External Hard Drive - USB 3.0",
+                price: 64,
+                 image: "images/product 9.png"
+            },
+            {
+                category: "Electronics",
+                title: "SanDisk SSD PLUS 1TB Internal SSD - SATA III 6 Gb/s",
+                price: 109, 
+                image: "images/product 10.png"
+            },
+            {
+                category: "Electronics",
+
+                title: "Silicon Power 256GB SSD 3D NAND A55 SLC Cache Performance Boost SATA III 2.5",
+                price: 109, 
+                image: "images/product 11.png"
+            },
+            {
+                category: "Electronics",
+                title: "WD 4TB Gaming Drive Works with Playstation 4 Portable External Hard Drive",
+                price: 114, 
+                image: "images/product 12.png"
+            },
+           
+            {
+                category: "Electronics",
+                title: "Acer SB220Q bi 21.5 inches Full HD (1920 x 1080) IPS Ultra-Thin",
+                price: 599,
+                 image: "images/product 13.png"
+            },
+            {
+                category: "Electronics",
+                title: "Samsung 49-Inch CHG90 144Hz Curved Gaming Monitor (LC49HG90DMNXZA) – Super Ultrawide Screen QLED",
+                price: 999.99,
+                 image: "images/product 14.png"
+            },
+            {
+                category: "Women's clothing",
+                title: "BIYLACLESEN Women's 3-in-1 Snowboard Jacket Winter Coats",
+                price: 56.99,
+                 image: "images/product 15.png"
+            },
+            {
+                category: "Women's clothing",
+                title: "Lock and Love Women's Removable Hooded Faux Leather Moto Biker Jacket",
+                price: 29.95, 
+                image: "images/product 16.png"
+            },
+            {
+                category: "Women's clothing",
+                title: "Rain Jacket Women Windbreaker Striped Climbing Raincoats",
+                price: 39.99, 
+                image: "images/product 17.png"
+            },
+            {
+                category: "Women's clothing",
+                title: "MBJ Women's Solid Short Sleeve Boat Neck V ",
+                price: 9.95, 
+                image: "images/product 18.png"
+            },
+            {
+                category: "Women's clothing",
+                title: "Opna Women's Short Sleeve Moisture",
+                price: 7.95,
+                 image: "images/product 19.png"
+            },
+            {
+                category: "Women's clothing",
+                title: "DANVOUY Womens T Shirt Casual Cotton Short",
+                price: 12.99,
+                 image: "images/product 20.png"
+            }
+        ];
+
+        // Select container
+        const container = document.getElementById("productContainer");
+
+        // Loop through products
+        for (let i = 0; i < products.length; i++) {
+            let card = `
+        <div class="card">
+          <img src="${products[i].image}" alt="${products[i].name}">
+          <h6>${products[i].category}</h6>
+          <h3>${products[i].title}</h3>
+          <p class="price">${products[i].price}</p>
+          <a href="#" class="btn">Add to Cart</a>
+        </div>
+      `;
+            container.innerHTML += card;
+        }
+    </script>
+
+</body>
+
+</html>
