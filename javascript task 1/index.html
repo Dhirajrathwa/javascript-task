@@ -4,28 +4,213 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Javascript task 1</title>
+    <title>javascript task 1</title>
 </head>
 
 <body>
-    <h1> javascript</h1>
-    <p id="para"></p>
-    <p id="para2"></p>
-    <script>
-        document.getElementById("para").innerHTML = " Hello India";
-        document.getElementById("para2").innerHTML = " javascript task";
+    <h6>task 1</h6>
+    <p id="task1"></p>
 
-    </script>
-    <script>
-        let a = 2;
-        let b = 6;
-        const pie = 3.14;
-        document.write(a + b);
-        document.write(a * b);
-        console.log("a+b=", a + b);
-        console.log("a*b=", a * b);
-        console.log("pie+a+b=", pie + a + b);
-        window.alert(a + b);
+    <h6>task 2</h6>
+    <p id="task2"></p>
+
+    <h6>task 3</h6>
+    <p id="task3"></p>
+
+    <h6>task 4</h6>
+    <p id="task4"></p>
+
+    <h6>task 5</h6>
+    <p id="task5"></p>
+
+    <h6>task 6</h6>
+    <p id="task6"></p>
+
+    <h6>task 7</h6>
+    <p id="task7"></p>
+
+
+    <h6>task 8</h6>
+    <p id="task8"></p>
+
+    <h6>task 9</h6>
+    <p id="task9"></p>
+
+    <h6>task 10</h6>
+    <p id="task10"></p>
+
+    <h6>task 11</h6>
+    <p id="task11"></p>
+
+    <p id="task12"></p>
+
+    <p id="task13"></p>
+
+    <p id="task14"></p>
+
+
+    <script>//task 1
+        function getDiscountedPrice(price, discount = 10) {
+            discount = price * discount / 100;
+            if (discount === 0) {
+                discount = price * 10 / 100;
+            }
+            document.getElementById("task1").innerHTML = `Price: ₹${price}, Discount: ${discount}%`;;
+
+        }
+        getDiscountedPrice(80);
+
+        //task 2
+           const users = [
+                 { name: "Riya", age: 19 },
+                 { name: "Kunal", age: 16 },
+                 { name: "Ankit", age: 25 }
+             ];
+            const eligiblevoter=users.filter(voter=>voter.age<=18);
+             document.getElementById("task2").innerHTML =JSON.stringify(eligiblevoter);
+              
+        //task 3
+        function countCharacter(str, char) {
+            let count = 0;
+
+            for (let i = 0; i < str.length; i++) {
+                if (str[i] === char) {
+                    count++;
+                }
+            }
+
+            document.getElementById("task3").innerHTML = "number of occurance:" + `${count}`;
+        }
+
+        countCharacter("hello", "l");  // → 2
+
+        //task 4
+        function reverse(str) {
+            let length = str.length;
+            let reversestr = "";
+
+            for (let i = length - 1; i >= 0; i--) {
+                reversestr += str[i];
+            }
+            document.getElementById("task4").innerHTML = "reversed sentence: " + `${reversestr}`;
+        }
+        reverse("hello");
+
+        //task 5
+        let cart = ["Shoes", "Watch"];
+        cart.shift();
+        cart.push("bag");
+        for (const element of cart) {
+            document.getElementById("task5").innerHTML = "updated array" + `${cart}`;
+
+        }
+        //task 6
+        let item1 = ["mango", "apple", "banana", "grapes"];
+        let item2 = ["orange", "watermelon", "kivi"];
+        item2.forEach(element => {
+            item1.push(element)
+            document.getElementById("task6").innerHTML = "added array: " + `${item1}`;
+        });
+
+        //task 7
+        const array = [44, 45, 2];
+        function findExtremes(arr) {
+            if (!Array.isArray(arr) || arr.length === 0) {
+                return { smallest: undefined, largest: undefined };
+            }
+
+            const min = Math.min(...arr);
+            const max = Math.max(...arr);
+
+            return { smallest: min, largest: max };
+        }
+        document.getElementById("task7").innerHTML = JSON.stringify(findExtremes(array));
+
+        //task 8
+        const product = {
+            name: "Laptop",
+            price: 55000,
+            brand: "HP",
+        };
+        const { name, price, brand } = product;
+        document.getElementById("task8").innerHTML = "\"" + brand + " " + name + " " + "costs" + " " + price + "\"";
+
+        //task 9
+        function calculateGrade(marks) {
+            if (marks >= 80) {
+                return ("A");
+            } else if (marks >= 60) {
+                return ("B");
+            }
+            else if (marks >= 40) {
+                return ("C");
+            }
+            else {
+                return ("Fail")
+            }
+        }
+
+        document.getElementById("task9").innerHTML = calculateGrade(80);
+
+        //task 10
+        const evennumber = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        let sum = 0;
+        evennumber.forEach(element => {
+            if (element % 2 == 0) {
+                sum += element;
+            }
+
+
+        })
+        document.getElementById("task10").innerHTML = "sum of even number is:" + sum;
+
+        //task 11
+        const products = [
+            { id: 1, title: "Fjallraven Backpack", price: 109.95, category: "men's clothing" },
+            { id: 2, title: "Mens Casual Shirt", price: 22.3, category: "men's clothing" },
+            { id: 3, title: "Silver Ring", price: 55.99, category: "jewelery" },
+            { id: 4, title: "iPhone 14", price: 999.99, category: "electronics" },
+        ];
+        function displayAllProducts() {
+            let html = "";
+            products.forEach((p, i) => {
+                html += (i + 1) + ". " + p.title + "<br>";
+            });
+            document.getElementById("task11").innerHTML = html;
+        }
+
+       //task 12
+        function getProductsByCategory(category) {
+            const filtered = products.filter(p => p.category === category);
+            let html = "";
+            filtered.forEach((p, i) => {
+                html += (i + 1) + ". " + p.title + " <b>Price:</b>" + p.price + "<br>";
+            });
+            document.getElementById("task12").innerHTML = html;
+        }
+
+        //task 13
+        function gettotalprice() {
+            let totalprice = 0;
+            for (let i = 0; i < products.length; i++) {
+                totalprice += products[i].price;
+            }
+            document.getElementById("task13").innerHTML = "Total price: " + totalprice;
+        }
+
+        //task 14
+        function getfilter(price) {
+            const affordableprice=products.filter(p=>p.price<=price)
+            document.getElementById("task14").innerHTML = JSON.stringify(affordableprice);
+        }
+        displayAllProducts();
+        getProductsByCategory("jewelery");
+        gettotalprice();
+        getfilter(100);
+
+
+
+
     </script>
 </body>
 
