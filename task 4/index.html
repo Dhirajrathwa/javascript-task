@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*  // example 1
+         function calculation() {
+             let a = 10;
+             let b = 12;
+             document.write("sum=", a + b, "<br>");
+             document.write("multiply=", a * b, "<br>");
+             document.write("substraction=", a - b, "<br>");
+             document.write("modulus=", a % b, "<br><br>");
+ 
+         }
+         calculation();
+ 
+         // example 2
+         function productdetails(product_name, price, paid = "Unpaid") {
+             console.log("name=", `${product_name}`, "price=", `${price}`, "paid=", `${paid}`);
+ 
+         }
+         console.log("example 2");
+         console.log("laptop ", 50000, " Paid ");
+         console.log("mobile ", 30000, " Paid ");
+         console.log("watch ", 20000, " Paid ");
+         productdetails()
+ 
+ 
+         // example 3
+         function employeeDetails(name, age, salary, mobile, email, position) {
+ 
+             if (position === undefined || position === null || position === "") {
+                 position = name + " employee";
+             }
+             console.log("name=", `${name}`, "age=", `${age}`, "salary=", `${salary}`, "mobile=", `${mobile}`, "email=", `${email}`, "position=", `${position}`);
+         }
+         console.log("example 3");
+         employeeDetails("John ", 30, 50000, "1234567890 ", "john@example.com ", "manager");
+         employeeDetails("Alice ", 28, 60000, "0987654321 ", "alice@example.com ", "employee");
+         employeeDetails("Bob ", 30, 50000, "9876543210 ", "bob@example.com ");
+ 
+         // 1
+         // example 1
+         function greeting(name = "Guest") {
+             console.log("Hello, " + name + "!");
+         }
+         greeting("Alice"); // Output: Hello, Alice!
+         greeting(); // Output: Hello, Guest!
+        //example 2
+        for(i=1;i<=5;i++){
+         console.log(i);
+        }
+        //example 3
+        let a=12;
+        if(a % 2===0){
+         console.log("a is even")
+        }
+ 
+        // 2
+        //example 1
+        function greet( name ="welcome"){
+         console.log("hello,"+ name );
+        }
+        greet("dhiraj");
+        greet()
+ 
+       //example 2
+       function addtwonum(x,y){
+          console.log("sum=",x+y);
+       }
+       addtwonum(10,20)
+     //example 3
+      function intro( name ="Dhiraj"){
+         console.log("hello",`${name}` );
+        }
+       intro()
+       */
+        let isleapyear = (year) => {
+            return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+        };
+
+        console.log(isleapyear(2024));
+
+
+     /*   function showpayment(payment,yes,no){
+        if(confirm(payment)) yes()
+        else no();
+       }
+          showpayment(
+            "payment done $100",
+            function(){ alert("payment  successful");},
+             function(){ alert("payment  unsuccessful")}
+          );
+ */         
+        function getgrade(totalmarks) {
+
+            if (totalmarks > 90) {
+                grade = "a";
+            } else if (totalmarks > 80) {
+                grade = "b";
+            }
+            else if (totalmarks > 70) {
+                grade = "c";
+            }
+            else grade = "d";
+            return grade;
+        }
+        function studentdetails(name, age, email, totalmarks = 0) {
+            let grade =getgrade(totalmarks);
+            console.log("name:", `${name}`, "age:", `${age}`, "email:", `${email}`, "totalmarks:", `${totalmarks}`, "grade:", `${grade}`);
+        }
+        studentdetails("alice", 22, "some@example.com", 72);
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*   const listofitem=["item1","item2","item3","item4"];
+     listofitem.forEach(function(value){
+           document.write(value);
+     }) 
+            const listofitem=["item1","item2","item3","item4"];
+    function showlist(element){
+      for (const element of listofitem) {
+        document.write(element);
+      }
+    }
+          showlist(listofitem);*/
+
+
+    let category = {
+      category1: ['Apple', 'Banana', 'Cherry'],
+      category2: [],
+      category3: ['Pineapple', 'Grapes', 'Watermelon', 'Papaya', 'Mango'],
+      category4: ['Pineapple', 'Grapes']
+    };
+    let defaultitem = ['item1', 'item2', 'item3', 'item4', 'item5', 'item6'];
+    for (let element in category) {
+      let item = category[element];
+      if (item.length === 0) {
+        category[element] = defaultitem.slice(0, 3);
+      }
+      else if (item.length > 3) {
+        category[element] = item.slice(0, 3);
+      }
+      else if (item.length < 3) {
+        let needed = 3 - item.length;
+        category[element] = item.concat(defaultitem.slice(0, needed));
+
+
+      }
+
+
+    }
+    console.log(category);
+
+
+    let text = "hello Dhiraj";
+    let count = text.split(" ");
+    console.log("number of word:", count.length);
+
+    let users = [
+      { id: 1, name: "John" },
+      { id: 2, name: "Pete" },
+      { id: 3, name: "Mary" }
+    ];
+    console.log(users[1]);
+
+  </script>
+</body>
+
+</html>
