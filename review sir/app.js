@@ -67,5 +67,5 @@ function next() {
   Showreview(index);
 }
 function random(){
-  Showreview(i=2);
+  Showreview(index=2);
 }
